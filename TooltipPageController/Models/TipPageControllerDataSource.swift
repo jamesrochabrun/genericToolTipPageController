@@ -20,38 +20,31 @@ class TipPageControllerDataSource: NSObject, UIPageViewControllerDataSource {
         self.tipPageController = tipPageController
         super.init()
     }
-
+    
     // MARK: - Datasource methods
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        /// 1 get tip and check index
-        guard let tipVC = viewController as? TipViewerController,
-            let index = tipPageController?.tips.index(of: tipVC.tip) else { return nil }
-        ///2 compare indexes and return nil if they match
-        if index == tipPageController?.tips.startIndex {
-            return nil
-        } else{
-            guard let indexBefore = tipPageController?.tips.index(before: index),
-                let tip = tipPageController?.tips[indexBefore] else { return nil }
-            return tipPageController?.tipViewerController(with: tip)
-        }
+        var index = (viewController as! TipViewerController).tip.index
+        index -= 1
+        return self.pageViewController(atIndex: index)
     }
     
       func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        var index = (viewController as! TipViewerController).tip.index
+        index += 1
+        return self.pageViewController(atIndex: index)
+    }
+    
+    // MARK: - Helper
+    func pageViewController(atIndex: Int) -> TipViewerController? {
         
-        /// 1 get photo and check index
-        guard let tipVC = viewController as? TipViewerController,
-            let index = tipPageController?.tips.index(of: tipVC.tip) else {
-                return nil
-        }
-        ///2 compare indexes and return nil if they match
-        if index == (tipPageController?.tips.index(before: (tipPageController?.tips.endIndex)!))! {
+        if atIndex == NSNotFound || atIndex < 0 || atIndex >= (tipPageController?.tips.count)! {
             return nil
-        } else{
-            guard let indexAfter = tipPageController?.tips.index(after: index),
-                let tip = tipPageController?.tips[indexAfter] else { return nil }
-            return tipPageController?.tipViewerController(with: tip)
         }
+        if let pageContentVC = tipPageController?.storyboard?.instantiateViewController(withIdentifier: "TipViewerController") as? TipViewerController {
+            pageContentVC.tip = tipPageController?.tips[atIndex]
+            return pageContentVC
+        }
+        return nil
     }
 }
 

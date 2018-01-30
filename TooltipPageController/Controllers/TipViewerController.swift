@@ -12,6 +12,8 @@ class TipViewerController:  UIViewController {
     
     
     var tip: Tip!
+    // MARK: - UI
+    var pageControl = UIPageControl()
     @IBOutlet weak var tipLabel: UILabel!
     @IBOutlet weak var transitionButton: UIButton!
     
@@ -19,6 +21,7 @@ class TipViewerController:  UIViewController {
         super.viewDidLoad()
         self.tipLabel.text = tip.titleTip
         self.view.backgroundColor = tip.color
+        configurePageControl()
         setUpUI()
     }
     
@@ -31,6 +34,17 @@ class TipViewerController:  UIViewController {
         default:
             break
         }
+    }
+    
+    func configurePageControl() {
+        // The total number of pages that are available is based on how many available colors we have.
+        pageControl = UIPageControl(frame: CGRect(x: 0, y: 25,width: 200, height: 50))
+        self.pageControl.numberOfPages = 3
+        self.pageControl.currentPage = self.tip.index
+        self.pageControl.tintColor = UIColor.black
+        self.pageControl.pageIndicatorTintColor = UIColor.white
+        self.pageControl.currentPageIndicatorTintColor = UIColor.black
+        self.view.addSubview(pageControl)
     }
     
     // MARK: - action of
