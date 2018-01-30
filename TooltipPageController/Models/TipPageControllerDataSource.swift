@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class TipPageControllerDataSource: NSObject, UIPageViewControllerDataSource {
     
     // MARK: - Private properties
@@ -26,7 +27,6 @@ class TipPageControllerDataSource: NSObject, UIPageViewControllerDataSource {
         /// 1 get tip and check index
         guard let tipVC = viewController as? TipViewerController,
             let index = tipPageController?.tips.index(of: tipVC.tip) else { return nil }
-        
         ///2 compare indexes and return nil if they match
         if index == tipPageController?.tips.startIndex {
             return nil
@@ -43,9 +43,7 @@ class TipPageControllerDataSource: NSObject, UIPageViewControllerDataSource {
         guard let tipVC = viewController as? TipViewerController,
             let index = tipPageController?.tips.index(of: tipVC.tip) else {
                 return nil
-                
         }
-        
         ///2 compare indexes and return nil if they match
         if index == (tipPageController?.tips.index(before: (tipPageController?.tips.endIndex)!))! {
             return nil
