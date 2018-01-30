@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0915613C201FF3B300DCAA9E /* TipViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915613B201FF3B300DCAA9E /* TipViewerController.swift */; };
+		0915613E201FF40C00DCAA9E /* TipPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0915613D201FF40C00DCAA9E /* TipPageController.swift */; };
 		09DB792D201FD785002578AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB792C201FD785002578AE /* AppDelegate.swift */; };
-		09DB792F201FD785002578AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB792E201FD785002578AE /* ViewController.swift */; };
 		09DB7932201FD785002578AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DB7930201FD785002578AE /* Main.storyboard */; };
 		09DB7934201FD785002578AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09DB7933201FD785002578AE /* Assets.xcassets */; };
 		09DB7937201FD785002578AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09DB7935201FD785002578AE /* LaunchScreen.storyboard */; };
 		09DB7942201FD785002578AE /* TooltipPageControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB7941201FD785002578AE /* TooltipPageControllerTests.swift */; };
+		09DB7951201FDC04002578AE /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB7950201FDC04002578AE /* Tip.swift */; };
+		09DB7953201FDFBD002578AE /* TipPageControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DB7952201FDFBD002578AE /* TipPageControllerDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,9 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0915613B201FF3B300DCAA9E /* TipViewerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipViewerController.swift; sourceTree = "<group>"; };
+		0915613D201FF40C00DCAA9E /* TipPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPageController.swift; sourceTree = "<group>"; };
 		09DB7929201FD785002578AE /* TooltipPageController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TooltipPageController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DB792C201FD785002578AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09DB792E201FD785002578AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09DB7931201FD785002578AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09DB7933201FD785002578AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09DB7936201FD785002578AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +40,8 @@
 		09DB793D201FD785002578AE /* TooltipPageControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TooltipPageControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		09DB7941201FD785002578AE /* TooltipPageControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TooltipPageControllerTests.swift; sourceTree = "<group>"; };
 		09DB7943201FD785002578AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09DB7950201FDC04002578AE /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		09DB7952201FDFBD002578AE /* TipPageControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipPageControllerDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,8 +83,11 @@
 		09DB792B201FD785002578AE /* TooltipPageController */ = {
 			isa = PBXGroup;
 			children = (
+				09DB794F201FD947002578AE /* ViewModels */,
+				09DB794E201FD93E002578AE /* Controllers */,
+				09DB794D201FD938002578AE /* Views */,
+				09DB794C201FD92C002578AE /* Models */,
 				09DB792C201FD785002578AE /* AppDelegate.swift */,
-				09DB792E201FD785002578AE /* ViewController.swift */,
 				09DB7930201FD785002578AE /* Main.storyboard */,
 				09DB7933201FD785002578AE /* Assets.xcassets */,
 				09DB7935201FD785002578AE /* LaunchScreen.storyboard */,
@@ -94,6 +103,38 @@
 				09DB7943201FD785002578AE /* Info.plist */,
 			);
 			path = TooltipPageControllerTests;
+			sourceTree = "<group>";
+		};
+		09DB794C201FD92C002578AE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				09DB7952201FDFBD002578AE /* TipPageControllerDataSource.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		09DB794D201FD938002578AE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		09DB794E201FD93E002578AE /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0915613B201FF3B300DCAA9E /* TipViewerController.swift */,
+				0915613D201FF40C00DCAA9E /* TipPageController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		09DB794F201FD947002578AE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				09DB7950201FDC04002578AE /* Tip.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,8 +240,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09DB792F201FD785002578AE /* ViewController.swift in Sources */,
+				09DB7951201FDC04002578AE /* Tip.swift in Sources */,
+				0915613E201FF40C00DCAA9E /* TipPageController.swift in Sources */,
 				09DB792D201FD785002578AE /* AppDelegate.swift in Sources */,
+				09DB7953201FDFBD002578AE /* TipPageControllerDataSource.swift in Sources */,
+				0915613C201FF3B300DCAA9E /* TipViewerController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
